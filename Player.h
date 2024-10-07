@@ -10,7 +10,7 @@ private:
 	ObjectType playerType;
 	int lvl;
 public:
-	Player(string name, ObjectType playerType, int lvl, int exp);
+	Player(const std::string& name, ObjectType playerType, int lvl, int exp);
 
 	void setExp(int newExp);
 	int getExp() const;
@@ -23,7 +23,7 @@ public:
 	void printInfo() const;
 	void updateStats(int hp, int attackPower, int defensePower);
 
-	string typeToString() const;
+	std::string typeToString() const;
 
 };
 

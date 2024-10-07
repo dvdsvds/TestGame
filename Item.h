@@ -7,7 +7,6 @@
 #include <ctime>
 #include <random>
 
-using namespace std;
 
 enum ItemType {
 	weapon,
@@ -19,11 +18,11 @@ enum ItemType {
 
 class Item {
 
-static random_device rd_Item;
-static mt19937 i;
+static std::random_device rd_Item;
+static std::mt19937 i;
 
 private:
-	string name;
+	std::string name;
 	int attackPower;
 	int defensePower;
 	int requireLevel;
@@ -31,27 +30,27 @@ private:
 	int durability;
 	ItemType itemType;
 public:
-	Item(string name, ItemType itemtype, int addHP, int addAP, int addDP, int Durability ,int rl);
+	Item(const std::string& name, ItemType itemtype, int addHP, int addAP, int addDP, int Durability ,int rl);
 
-	string getName();
+	const std::string& getName() const;
 
-	int getAttackPower();
-	int getDefensePower();
-	int getRequireLevel();
-	int getHp();
-	int getDurability();	
+	int getAttackPower() const;
+	int getDefensePower() const;
+	int getRequireLevel() const;
+	int getHp() const;
+	int getDurability() const;	
 	void printInfo() const;
 
-	static const vector<Item> WeaponList;
-	static const vector<Item> SecondWeaponList;
-	static const vector<Item> ShirtList;
-	static const vector<Item> HelmetList;
-	static const vector<Item> PantsList;
+	static const std::vector<Item> WeaponList;
+	static const std::vector<Item> SecondWeaponList;
+	static const std::vector<Item> ShirtList;
+	static const std::vector<Item> HelmetList;
+	static const std::vector<Item> PantsList;
 
 	static Item getRandomItem();
-	static Item getRandomItemFromList(const vector<Item>& itemList);
+	static Item getRandomItemFromList(const std::vector<Item>& itemList);
 
-	string typeToString() const;
+	std::string typeToString() const;
 };
 
 #endif

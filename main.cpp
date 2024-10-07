@@ -11,20 +11,19 @@ using namespace std;
 int main() {
 	SetConsoleFont(10);
 	// player setting
-	// choose the player's race
-	//srand(time(NULL));
 	srand(static_cast<unsigned int>(time(NULL)));
 	string name;
 	int choice;
 
-	cout << "Can you tell me your name before entering in this world?" << endl << "> ";
+	cout << "Can you tell me your name before entering in this world?" << endl;
 	cin >> name;
 
 	cout << endl;
 	cout << "What do you want to be in the world?" << endl;
-	cout << "(1)Human (2)Oak (3)Elf" << endl << "> ";
-	cin >> choice;
+	cout << "(1)Human (2)Oak (3)Elf" << endl;
+	choice = getValidIntegerInput();
 
+	// choose the player's race
 	ObjectType raceType;
 	switch (choice) {
 	case 1:
@@ -53,8 +52,8 @@ int main() {
 		cout << "You are walking down the street." << endl;
 		cout << "There are three signpost in front of you." << endl << endl;
 		cout << "What would you do?" << endl;
-		cout << "(1)Go out of the villiage (2)Go to forge (3)Go to shop" << endl << "> ";
-		cin >> choice;
+		cout << "(1)Go out of the villiage (2)Go to forge (3)Go to shop" << endl ;
+		choice = getValidIntegerInput();
 
 		switch (choice) {
 		case 1: // Go out of the villiage
@@ -70,8 +69,8 @@ int main() {
 				while (am.getHP() > 0 && p.getHP() > 0) {
 					cout << endl;
 					cout << "What do you want to do?" << endl;
-					cout << "1. attack" << endl << "2. run" << endl << "> ";
-					cin >> choice;
+					cout << "1. attack" << endl << "2. run" << endl ;
+					choice = getValidIntegerInput();
 					cout << endl;
 
 					if (choice == 1) {
@@ -95,8 +94,8 @@ int main() {
 							getItem.printInfo();
 							cout << endl;
 							cout << "Would you like to equip? " << endl;
-							cout << "(1) y (2) n" << endl << "> ";
-							cin >> choice;
+							cout << "(1) y (2) n" << endl ;
+							choice = getValidIntegerInput();
 							cout << endl;
 
 							if (choice == 1) {
@@ -120,8 +119,6 @@ int main() {
 								cout << "Level UP" << endl;
 								cout << "You have become level " << p.getLevel() << endl;
 							}
-
-
 							break;
 						}
 
@@ -141,8 +138,8 @@ int main() {
 			Npc BlackSmithJames("James", ObjectType::Human, NpcRole::BlackSmith);
 			cout << "Hi. My name is " << BlackSmithJames.getName() << endl;
 			cout << "What would you like?" << endl;
-			cout << "(1)Forge (2)Fix (3)Disassable (4)Exit" << "> ";
-			cin >> subChoice;
+			cout << "(1)Forge (2)Fix (3)Disassable (4)Exit" ;
+			subChoice = getValidIntegerInput();
 
 			switch (subChoice) {
 			case 1: // Forge
@@ -158,6 +155,9 @@ int main() {
 		}
 		case 3: // Go to shop
 			break;
+		default:
+			cout << "Invaild choice, Please try again" << endl;
+			continue;
 		}
 	}
 	return 0;

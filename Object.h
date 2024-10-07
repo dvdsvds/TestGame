@@ -5,8 +5,6 @@
 #include <vector>
 #include <random>
 
-using namespace std;
-
 enum ObjectType {
 	Human,
 	Oak,
@@ -19,12 +17,12 @@ protected:
 	int MP;
 	int attackPower;
 	int defensePower;
-	string name;
+	std::string name;
 public:
-	Object(string name, int HP, int MP, int attackPower, int defensePower);
+	Object(const std::string& name, int HP, int MP, int attackPower, int defensePower);
 
-	string getName() const;
-	void setName(string newName);
+	const std::string& getName() const;
+	void setName(const std::string& newName);
 
 	int getHP() const;
 	void setHP(int newHP);

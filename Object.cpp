@@ -1,10 +1,10 @@
 #include "Object.h"
 
-Object::Object(string name, int HP, int MP, int ap, int dp) 
+Object::Object(const std::string& name, int HP, int MP, int ap, int dp) 
 	: name(name), HP(HP), MP(MP), attackPower(ap), defensePower(dp) {}
 
-void Object::setName(string newName) { name = newName; }
-string Object::getName() const { return name; }
+void Object::setName(const std::string& newName) { name = newName; }
+const std::string& Object::getName() const { return name; }
 
 void Object::setHP(int newHP) { HP = newHP; }
 int Object::getHP() const { return HP; }

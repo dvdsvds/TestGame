@@ -14,11 +14,11 @@ enum NpcRole {
 
 class Npc : public Object {
 private:
-	string name;
+	std::string name;
 	ObjectType npcType;
 	NpcRole role;
 public:
-	Npc(string name, ObjectType npcType, NpcRole role);
+	Npc(const std::string& name, ObjectType npcType, NpcRole role);
 	void printInfo() const;
 };
 #endif

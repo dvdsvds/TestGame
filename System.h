@@ -3,8 +3,9 @@
 
 #include <iostream>
 #include <windows.h>
-using namespace std;
+#include <limits>
 
 void SetConsoleFont(int fontSize);
+int getValidIntegerInput();
 
 #endif
